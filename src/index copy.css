@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+/* custom base */
+@layer base {
+  html, body, #root { height: 100%; }
+  body {
+    background: linear-gradient(180deg,#070707 0%, #0b0b0b 100%);
+    color: #ffffff;
+  }
+  .font-serif { 
+    font-family: 'Playfair Display', serif; 
+  }
+}
+
+/* variables */
+:root {
+  --gold: #d6a84f;
+}
+
+.text-gold { 
+  color: var(--gold); 
+}
+.bg-gold { 
+  background: var(--gold); 
+}
+
+/* ----------------------------- */
+/* ⭐ Sticky Scroll Animations ⭐ */
+/* ----------------------------- */
+
+.sticky-section {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.sticky-item {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+/* ----------------------------- */
+/* ⭐ Fade-in Animation Base ⭐ */
+/* ----------------------------- */
+
+.fade-element {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* ----------------------------- */
+/* ⭐ Typing Animation Styling ⭐ */
+/* (for Typing component cursor) */
+/* ----------------------------- */
+
+.typing-text {
+  font-size: inherit;
+  color: inherit;
+  white-space: nowrap;
+  border-right: 2px solid var(--gold);
+}
+
+.blinking-cursor {
+  display: inline-block;
+  width: 10px;
+  animation: blink 1s steps(2, start) infinite;
+  opacity: 0.9;
+}
+
+@keyframes blink {
+  to { opacity: 0; }
+}
+
+/* fallback scale classes (if Tailwind misses them) */
+.scale-95 { transform: scale(.95); }
+.scale-100 { transform: scale(1); }
